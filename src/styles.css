@@ -19,6 +19,8 @@ body {
   justify-content: center;
   height: 90vh;
   text-align: center;
+  cursor: default;
+  user-select: none;
   transition: all 1s;
 }
 
@@ -77,4 +79,5 @@ body {
   width: 100px;
   border: 1px solid black;
   border-radius: 50%;
+  cursor: pointer;
 }

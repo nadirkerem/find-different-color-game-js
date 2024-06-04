@@ -60,12 +60,12 @@ function selectionChecker(event) {
     alert('Correct!');
     correctGuesses += 1;
     gameCounter += 1;
-    score.textContent = `Your Score: ${correctGuesses} / ${gameCounter}`;
+    score.textContent = `Your Score: ${correctGuesses} / ${gameCounter}. 6 out of 10 to win the game.`;
     gameIteration();
   } else {
     alert('Wrong!');
     gameCounter += 1;
-    score.textContent = `Your Score: ${correctGuesses} / ${gameCounter}`;
+    score.textContent = `Your Score: ${correctGuesses} / ${gameCounter}. 6 out of 10 to win the game.`;
     gameIteration();
   }
 }

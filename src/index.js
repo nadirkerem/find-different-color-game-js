@@ -72,7 +72,7 @@ function selectionChecker(event) {
 
 function gameIteration() {
   if (gameCounter === 10) {
-    if (correctGuesses >= 5) {
+    if (correctGuesses > 5) {
       alert('You won! Congrats.');
       score.textContent = 'Game over. You won! Pick one to start a new game.';
       colorFiller();

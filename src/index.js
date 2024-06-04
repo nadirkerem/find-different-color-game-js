@@ -57,39 +57,52 @@ function selectionChecker(event) {
   if (isSelectionTrue) {
     alert('Correct!');
     correctGuesses += 1;
+    gameCounter += 1;
+    score.textContent = `Your Score: ${correctGuesses} / ${gameCounter}`;
     gameIteration();
   } else {
     alert('Wrong!');
+    gameCounter += 1;
+    score.textContent = `Your Score: ${correctGuesses} / ${gameCounter}`;
     gameIteration();
   }
-  gameCounter += 1;
 }
 
 function gameIteration() {
   if (gameCounter === 10) {
     if (correctGuesses >= 5) {
-      alert('You won!');
+      alert('You won! Congrats.');
+      score.textContent = 'Game over. You won! Pick one to start a new game.';
+      colorFiller();
     } else {
-      alert('You lose!');
+      alert('You lose! Try again.');
+      score.textContent = 'Game over. You lose! Pick one to start a new game.';
+      colorFiller();
     }
+    gameCounter = 0;
+    correctGuesses = 0;
     return;
   } else if (gameCounter < 10) {
-    let { randomColor, differentColorShade, selectedBoxIndex } =
-      allColorGenerator();
-
-    colorBoxes.forEach((colorBox, index) => {
-      if (index === selectedBoxIndex) {
-        colorBox.style.backgroundColor = differentColorShade;
-        colorBox.setAttribute('id', 'selected-box');
-      } else {
-        colorBox.style.backgroundColor = randomColor;
-      }
-
-      colorBox.addEventListener('click', selectionChecker);
-    });
+    colorFiller();
   }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   gameIteration();
 });
+
+function colorFiller() {
+  let { randomColor, differentColorShade, selectedBoxIndex } =
+    allColorGenerator();
+
+  colorBoxes.forEach((colorBox, index) => {
+    if (index === selectedBoxIndex) {
+      colorBox.style.backgroundColor = differentColorShade;
+      colorBox.setAttribute('id', 'selected-box');
+    } else {
+      colorBox.style.backgroundColor = randomColor;
+    }
+
+    colorBox.addEventListener('click', selectionChecker);
+  });
+}

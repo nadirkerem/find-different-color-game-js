@@ -1,3 +1,5 @@
+const body = document.body;
+const darkModeButton = document.querySelector('.dark-mode-button');
 const gridContainer = document.querySelector('.grid-container');
 const colorBoxes = document.querySelectorAll('.color-box');
 const score = document.querySelector('.score');
@@ -87,10 +89,6 @@ function gameIteration() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  gameIteration();
-});
-
 function colorFiller() {
   let { randomColor, differentColorShade, selectedBoxIndex } =
     allColorGenerator();
@@ -106,3 +104,15 @@ function colorFiller() {
     colorBox.addEventListener('click', selectionChecker);
   });
 }
+
+function darkModeToggler() {
+  body.classList.toggle('light');
+  darkModeButton.classList.toggle('light');
+  darkModeButton.classList.toggle('light-button');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  gameIteration();
+});
+
+darkModeButton.addEventListener('click', darkModeToggler);

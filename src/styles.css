@@ -1,3 +1,8 @@
+:root {
+  --dark: #232323;
+  --light: #f5f5f4;
+}
+
 *,
 ::before,
 ::after {
@@ -7,17 +12,41 @@
 }
 
 body {
-  background: #f5f5f4;
-  color: #232323;
+  background: var(--dark);
+  color: var(--light);
   font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: center;
   height: 90vh;
   text-align: center;
+  transition: all 1s;
+}
+
+.light {
+  background: var(--light) !important;
+  color: var(--dark) !important;
+}
+
+.light-button {
+  border: 1px solid var(--dark) !important;
+}
+
+.dark-mode-button {
+  color: var(--light);
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  height: 50px;
+  width: 50px;
+  background-color: transparent !important;
+  border-radius: 50%;
+  border: 1px solid var(--light);
+  cursor: pointer;
+  transition: all 1s;
 }
 
 .main-container {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .title {
